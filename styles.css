@@ -1,0 +1,103 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background-color: hsl(0, 0%, 100%);
+}
+
+ 
+.image-container {
+  display: flex;
+  position: relative;
+  gap: 0px;
+  transform: translateY(-205%);
+}
+
+.image-container img {
+  position: absolute;
+  border: 1px solid black;
+  width: 70px;
+  cursor: crosshair;
+  transition: transform 0.2s ease;
+}
+
+.image-container a {
+  width: 100px;
+  height: 100px;
+  transition: opacity 0.3s ease;
+}
+
+.image-container a:hover img {
+  opacity: 0.6;
+}
+
+
+.rotating-container {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  width: 120px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rotating-image {
+  width: 100%;
+  animation: rotate 10s linear infinite;
+}
+
+.info {
+  display: none;
+  position: fixed;
+  bottom: 30px; 
+  left: 30px; 
+  width: 1000px; 
+  line-height: 1.5;
+  font-size: 14px;
+  color: black;
+}
+
+.rotating-container:hover .info {
+  display: block;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+.image-container, .rotating-container {
+  display: none; 
+}
+
+.mobile-image {
+  display: block;
+  text-align: center;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+}
+
+
+@media only screen and (min-width: 768px) {
+.mobile-image {
+  display: none;
+}
+}
